@@ -25,12 +25,26 @@ class Pokedex extends Component {
     render() {
         return (
             <div>
+                {/* prevent default method has to be placed here bc it can't be inserted into an async function */}
                 <form onSubmit={e => {e.preventDefault(); this.searchPokemon()}}>
                     <input onChange={this.handleChange} placeholder="Pokemon name or number..."></input>
                     <button>Search</button>
                 </form>
                 <div>
-
+                    {this.state.pokemon && 
+                    <div>
+                        <p>#{this.state.pokemon.id} - {this.state.pokemon.name}</p>
+                        <p>Weight: {this.state.pokemon.weight}</p>
+                        <p>Height: {this.state.pokemon.height}</p>
+                        <div>{this.state.pokemon.moves.map((moves, i) => (
+                            <p>{moves.move.name}</p>
+                        )
+                        )}</div>
+                    </div>
+                    
+                    
+                    }
+                
                 </div>
             </div>
         );
