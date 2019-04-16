@@ -1,45 +1,32 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+
 
 class Pokedex extends Component {
-    state = {
-        search: null,
-        pokemon: null
-    }
-
-    handleChange = (e) => {
-        this.setState({search: e.target.value})
-    }
-
-    searchPokemon = async (e) => {
-        // e.preventDefault()
-        console.log(`searching ${this.state.search}`)
-        let newPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.search}/`)
-        this.setState({pokemon: newPokemon.data})
-        console.log(this.state.pokemon)
-    }
-    componentDidMount(){
-        this.searchPokemon()
-    }
+    
 
     render() {
         return (
             <div>
                 {/* prevent default method has to be placed here bc it can't be inserted into an async function */}
-                <form onSubmit={e => {e.preventDefault(); this.searchPokemon()}}>
-                    <input onChange={this.handleChange} placeholder="Pokemon name or number..."></input>
+                <form onSubmit={e => {e.preventDefault(); this.props.searchPokemon()}}>
+                    <input onChange={this.props.handleChange} placeholder="Pokemon name or number..."></input>
                     <button>Search</button>
                 </form>
                 <div>
-                    {this.state.pokemon && 
+                    {this.props.pokemon && 
                     <div>
-                        <p>#{this.state.pokemon.id} - {this.state.pokemon.name}</p>
-                        <p>Weight: {this.state.pokemon.weight}</p>
-                        <p>Height: {this.state.pokemon.height}</p>
-                        <div>{this.state.pokemon.moves.map((moves, i) => (
+                        <img src={this.props.pokemon.sprites.front_default} alt={this.props.pokemon.name}/>
+                        <p>#{this.props.pokemon.id} - {this.props.pokemon.name}</p>
+
+                        <button onClick={this.props.addPokemon}>Add to team</button>
+
+                        <p>Weight: {this.props.pokemon.weight}</p>
+                        <p>Height: {this.props.pokemon.height}</p>
+                        <div>{this.props.pokemon.moves.map((moves, i) => (
                             <p>{moves.move.name}</p>
                         )
                         )}</div>
+
                     </div>
                     
                     

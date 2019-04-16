@@ -4,7 +4,9 @@ class Team extends Component {
     render() {
         return (
             <div>
-                Team of Pokemon will be displayed here
+                {this.props.team.map((pokemon, i) => (
+                    <p>{pokemon.name}</p>
+                ))}
             </div>
         );
     }
