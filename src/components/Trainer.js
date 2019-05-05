@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
+import { Form } from 'react-bootstrap'
 
 class Trainer extends Component {
-    state = {
-        name: null
-    }
+    
 
-    handleChange = (e) => {
-        this.setState({name: e.target.value})
-    }
+    // handleChange = (e) => {
+    //     this.setState({this.props.name: e.target.value})
+    // }
 
     render() {
         return (
             <div>
-                <form>
-                    <input name='name' onChange={this.handleChange} value={this.state.name} placeholder="Enter trainer's name..."></input>
-                </form>
+                <Form>
+                    <Form.Control name='name' onChange={this.props.changeTrainerName} value={this.props.trainer} placeholder="Enter trainer's name..."/>
+                </Form>
                 
-                {this.state.name && <p>{this.state.name}'s Team</p>}
+                
             </div>
         );
     }
