@@ -9,7 +9,10 @@ class Team extends Component {
                 {this.props.team &&
                 <div>
                     {this.props.team.map((pokemon, i) => (
-                        <p>{pokemon.name}</p>
+                        <div>
+                            <img src={pokemon.sprites.front_default} alt={pokemon.name}/>
+                            <p>#{pokemon.id} - {pokemon.name}</p>
+                        </div>
                     ))}
                 </div>
                 }
