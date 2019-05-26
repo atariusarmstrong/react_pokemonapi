@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import logo from './logo.svg';
 import './App.css';
 import Trainer from './components/Trainer';
 import Pokedex from './components/Pokedex';
@@ -37,13 +36,19 @@ class App extends Component {
   }
 
   addPokemon = () => {
-    let banana = this.state.pokemon
+    let pokemon = this.state.pokemon
     let team = this.state.team
-    team.push(banana) 
+    team.push(pokemon) 
     this.setState({team: team})
     // this.setState({team: banana})
     // this.state.team.push(this.state.pokemon)
     console.log(this.state.team)
+  }
+
+  removePokemon = (index, e) => {
+   const team = [...this.state.team]
+   team.splice(index, 1)
+   this.setState({team})
   }
   render() {
     return (
@@ -67,7 +72,7 @@ class App extends Component {
               <Team 
                 trainer = {this.state.trainer}
                 team = {this.state.team}
-          
+                removePokemon = {this.removePokemon}
               />
             </Col>
           </Row>

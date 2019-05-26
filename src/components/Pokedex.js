@@ -23,6 +23,7 @@ class Pokedex extends Component {
                             <Card.Img variant='top' src={this.props.pokemon.sprites.front_default} alt={this.props.pokemon.name}/>
                             <Card.Body>
                             <Card.Title>#{this.props.pokemon.id} - {this.props.pokemon.name}</Card.Title>
+                            <Button onClick={this.props.addPokemon}>Add to team</Button>
 
                             <Card.Text>
 
@@ -39,7 +40,7 @@ class Pokedex extends Component {
                             )
                             )}</div>
                             </Card.Text>
-                            <Button onClick={this.props.addPokemon}>Add to team</Button>
+                            
                             </Card.Body>
                         </div>
                         
