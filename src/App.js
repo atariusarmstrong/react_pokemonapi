@@ -53,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Pokemon React App</h1>
+        <h1 className="header justify-content-md-center">Pokemon React App</h1>
         <Trainer 
           trainer = {this.state.trainer}
           changeTrainerName = {this.changeTrainerName}
