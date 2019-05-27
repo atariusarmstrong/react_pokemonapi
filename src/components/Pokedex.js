@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Card, Form} from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
+import Col from 'react-bootstrap/Col'
+
+
 
 
 class Pokedex extends Component {
@@ -10,8 +13,8 @@ class Pokedex extends Component {
         return (
             <div>
                 <Form onSubmit={e => {e.preventDefault(); this.props.searchPokemon()}}>
-                    <Form.Row>
-                        <Form.Control onChange={this.props.handleChange} placeholder="Pokemon name or number..."/>
+                    <Form.Row >
+                        <Form.Control size='sm' onChange={this.props.handleChange} placeholder="Pokemon name or number..."/>
                         <Button type='submit' className='search'>Search</Button>
                     </Form.Row>
                     
