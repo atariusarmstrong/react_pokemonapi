@@ -23,9 +23,9 @@ class Pokedex extends Component {
                 <Card>
                     {this.props.pokemon && 
                         <div>
-                            <Card.Img variant='top' src={this.props.pokemon.sprites.front_default} alt={this.props.pokemon.name}/>
+                            <Card.Img variant='top' src={this.props.pokemon.sprites.front_default} alt={this.props.pokemon.name} className='cardImg'/>
                             <Card.Body>
-                            <Card.Title>#{this.props.pokemon.id} - {this.props.pokemon.name}</Card.Title>
+                            <Card.Title className='cardHeader'>#{this.props.pokemon.id} - {this.props.pokemon.name}</Card.Title>
                             <Button onClick={this.props.addPokemon}>Add to team</Button>
 
                             <Card.Text>

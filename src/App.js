@@ -42,11 +42,11 @@ class App extends Component {
     this.setState({team: team})
     // this.setState({team: banana})
     // this.state.team.push(this.state.pokemon)
-    console.log(this.state.team)
+    // console.log(this.state.team)
   }
 
-  removePokemon = (index, e) => {
-   const team = [...this.state.team]
+  removePokemon = (index) => {
+  const team = [...this.state.team]
    team.splice(index, 1)
    this.setState({team})
   }
