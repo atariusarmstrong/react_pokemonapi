@@ -18,6 +18,39 @@ body {
 }
 
 .cardImg {
-  height: 25%;
-  width: 25%;
+  height: 10em;
+  width: 10em;
+}
+.pokedex{
+  background-color: grey;
+  padding: 30px;
+  border-radius: 10px;
+}
+.teamcard {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.trainer {
+  font-family: 'Bangers', cursive;
+  font-size: 70px;
+}
+
+.trainerform {
+  padding-bottom: 20px;
+}
+
+.type {
+  background: aliceblue;
+  border-radius: 5px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 5px;
+}
+
+.typeHolder {
+  margin-bottom: 10px;
 }

@@ -11,7 +11,7 @@ class Trainer extends Component {
     render() {
         return (
             <div>
-                <Form>
+                <Form className='trainerform'>
                     <Row className='justify-content-md-center'>
                         <Col md='5'>
                             <Form.Control name='name' onChange={this.props.changeTrainerName} value={this.props.trainer} placeholder="Enter trainer's name..." />

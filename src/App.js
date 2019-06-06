@@ -11,7 +11,15 @@ class App extends Component {
     trainer: null,
     search: null,
     pokemon: null,
-    team: []
+    team: [],
+    stats: {
+      hp: "",
+      attack: "",
+      defense: "",
+      speed: "",
+      specialAttack: "",
+      specialDefense: ""
+    }
   }
   
 
@@ -31,7 +39,25 @@ class App extends Component {
   searchPokemon = async () => {
     console.log(`searching ${this.state.search}`)
     let newPokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.search}/`)
-    this.setState({pokemon: newPokemon.data})
+    let species = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${this.state.search}/`)
+
+    let {hp} = '';
+
+    newPokemon.data.stats.map(stat => {
+      switch (stat.stat.name) {
+        case 'hp':
+          hp = stat['base_stat'];
+          break;
+        default:
+          break;
+      }
+    })
+
+    this.setState({
+      pokemon: newPokemon.data,
+      species: species.data,
+      stats: {hp}
+    })
     console.log(this.state.pokemon)
   }
 
